@@ -9,11 +9,14 @@ width,height = 640,480
 screen = pygame.display.set_mode((width,height))
 keys = [False,False,False,False]
 playerpos = [100,100]
+acc=[0,0]
+arrows=[]
 
 # 3 - Load images
 player = pygame.image.load('resources/images/dude.png')
 grass = pygame.image.load('resources/images/grass.png')
 castle = pygame.image.load('resources/images/castle.png')
+arrow = pygame.image.load('resources/images/bullet.png')
 
 # 4 - Keep looping through
 while 1:
@@ -35,6 +38,19 @@ while 1:
     playerrot = pygame.transform.rotate(player,360-angle*57.29)
     playerpos1 = (playerpos[0]-playerrot.get_rect().width/2,playerpos[1]-playerrot.get_rect().height/2)
     screen.blit(playerrot,playerpos1)
+    # 6.2 - Draw arrows
+    for bullet in arrows:
+        index=0
+        velx=math.cos(bullet[0])*10
+        vely=math.sin(bullet[0])*10
+        bullet[1]+=velx
+        bullet[2]+=vely
+        if bullet[1]<-64 or bullet[1]>640 or bullet[2]<-64 or bullet[2]>480:
+            arrows.pop(index)
+        index+=1
+        for projectile in arrows:
+            arrow1=pygame.transform.rotate(arrow, 360-projectile[0]*57.29)
+            screen.blit(arrow1, (projectile[1],projectile[2]))
     # 7 - update the screen
     pygame.display.flip()
     # 8 - loop through the events
@@ -58,6 +74,11 @@ while 1:
                 keys[2]=False
             elif event.key == K_d:
                 keys[3]=False
+        # check event is mouse click 
+        if event.type==pygame.MOUSEBUTTONDOWN:
+            position = pygame.mouse.get_pos()
+            acc[1]+=1
+            arrows.append([math.atan2(position[1]-(playerpos1[1]+32),position[0]-(playerpos1[0]+26)),playerpos1[0]+32,playerpos1[1]+32])
         # check if the event is the x button
         if event.type == pygame.QUIT:
             # if it is quit the game
