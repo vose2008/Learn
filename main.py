@@ -14,7 +14,7 @@ acc=[0,0]
 arrows=[]
 badtimer=100
 badtimer1=0
-badguys=[[640,100]]
+badguys=[[640,random.randint(50,430)]]
 healthvalue=194
 
 # 3 - Load images
@@ -27,7 +27,7 @@ badguyimg = badguyimg1
 
 # 4 - Keep looping through
 while 1:
-    badtimer-=1
+    badtimer -= 1
     # 5 - clear the screen before drawing it again
     screen.fill(0)
     # 6 - draw the screen elements
@@ -73,13 +73,24 @@ while 1:
             badguys.pop(index)
         badguy[0]-=7
     # 6.3.1 - Attack castle
-    badrect=pygame.Rect(badguyimg.get_rect())
-    badrect.top=badguy[1]
-    badrect.left=badguy[0]
-    if badrect.left < 64:
-        healthvalue -= random.randint(5,20)
-        badguys.pop(index)
-    # 6.3.2 - Next bad guy
+        badrect=pygame.Rect(badguyimg.get_rect())
+        badrect.top=badguy[1]
+        badrect.left=badguy[0]
+        if badrect.left < 64:
+            healthvalue -= random.randint(5,20)
+            badguys.pop(index)
+    # 6.3.2 - Check for collisions
+    index1=0
+    for bullet in arrows:
+        bullrect=pygame.Rect(arrow.get_rect())
+        bullrect.left=bullet[1]
+        bullrect.top=bullet[2]
+        if badrect.colliderect(bullrect):
+            acc[0]+=1
+            badguys.pop(index)
+            arrows.pop(index1)
+        index1+=1
+    # 6.3.3 - Next bad guy
         index+=1
     for badguy in badguys:
         screen.blit(badguyimg,badguy)
