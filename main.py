@@ -176,11 +176,15 @@ while running:
         accuracy=acc[0]*1.0/acc[1]*100
     else:
         accuracy=0
+# 11.1 - accuracy -->  string
+acc_tmp=str(accuracy)
+no=acc_tmp.index('.')
+accuracy=acc_tmp[0:no+2]
 # 11 - Win/Lose display
 if exitcode == 0:
     pygame.font.init()
     font = pygame.font.Font(None, 24)
-    text = font.render('Accuracy:'+str(accuracy)+'%',True,(255,0,0))
+    text = font.render('Accuracy:'+accuracy+'%',True,(255,0,0))
     textRect = text.get_rect()
     textRect.centerx = screen.get_rect().centerx
     textRect.centery = screen.get_rect().centery+24
@@ -189,7 +193,7 @@ if exitcode == 0:
 else:
     pygame.font.init()
     font = pygame.font.Font(None,24)
-    text = font.render('Accuracy:'+str(accuracy)+'%',True,(0,255,0))
+    text = font.render('Accuracy:'+accuracy+'%',True,(0,255,0))
     textRect = text.get_rect()
     textRect.centerx = screen.get_rect().centerx
     textRect.centery = screen.get_rect().centery+24
