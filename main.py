@@ -1,4 +1,4 @@
-# _*_ coding:utf-8 _*_
+#coding:utf-8
 # 1 - Import library
 import pygame
 from pygame.locals import *
@@ -177,9 +177,13 @@ while running:
     else:
         accuracy=0
 # 11.1 - accuracy -->  string
-acc_tmp=str(accuracy)
-no=acc_tmp.index('.')
-accuracy=acc_tmp[0:no+2]
+if accuracy != 0:
+    acc_tmp=str(accuracy)
+    no=acc_tmp.index('.')
+    accuracy=acc_tmp[0:no+2]
+else:
+    accuracy=0
+    accuracy=str(accuracy)
 # 11 - Win/Lose display
 if exitcode == 0:
     pygame.font.init()
