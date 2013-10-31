@@ -218,6 +218,8 @@ def EndGame(accuracy,exitcode):
                     continue_game = True
                 elif event.key == K_x:
                     continue_game = False
+                else:
+                    continue_game = True
     else:
         pygame.font.init()
         font = pygame.font.Font(None,24)
