@@ -212,6 +212,12 @@ def EndGame(accuracy,exitcode):
         choiceRect.centerx = screen.get_rect().centerx
         choiceRect.centery = screen.get_rect().centery+48
         screen.blit(choice,choiceRect)
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == K_c:
+                    continue_game = True
+                elif event.key == K_x:
+                    continue_game = False
     else:
         pygame.font.init()
         font = pygame.font.Font(None,24)
@@ -232,11 +238,6 @@ def EndGame(accuracy,exitcode):
             if event.type == pygame.QUIT:
                 pygame.quit()
                 exit(0)
-            elif event.type == pygame.KEYDOWN:
-                if event.key == K_c:
-                    continue_game = True
-                elif event.key == K_x:
-                    continue_game = False
         pygame.display.flip()
     return continue_game
 #----------------------------- EndGame END -------------------------------
@@ -248,5 +249,6 @@ while continue_game:
     accuracy = args_re[0]
     exitcode = args_re[1]
     continue_game = EndGame(accuracy,exitcode)
+    print continue_game
 
 # End
