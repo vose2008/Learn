@@ -15,7 +15,7 @@
 <li>游戏结束后没有继续或者退出的选择</li>
 <li>游戏结束后精确率的数值是float，太长了....
     <ul>
-        <li><b><i>FIX </i></b>float到string，string index到 . 的位置然后截取</li>
+        <li><b><i>FIX </i></b>float到string，string index到 . 的位置然后截取见#11.1</li>
     </ul>
 </li>
 </ol>
@@ -25,6 +25,7 @@
 <li>Git pull 什么的，哼...... 本地误删了main.py 其实用git checkout filename就好</li>
 <li>vim 进阶 如查找 更大的可视区域 双档比较 替换 还有vim的默认编码转换编码</li>
 <li>python string index异常抛出 find返回-1 另:str[a:b]</li>
+<li>pygame里的font.render('str',True,(255,0,0))最后三个是颜色，怪不得看着眼熟</li>
 </ul>
 醍醐灌顶：
 <ul>
