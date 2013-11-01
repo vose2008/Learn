@@ -9,16 +9,19 @@ import random
 pygame.init()
 width,height = 640,480
 screen = pygame.display.set_mode((width,height))
-keys = [False,False,False,False]
-playerpos = [100,100]
-acc=[0,0]
-arrows=[]
-badtimer=100
-badtimer1=0
-badguys=[[640,random.randint(50,430)]]
-healthvalue=194
 pygame.mixer.init()
-running=1
+keys = [False,False,False,False]
+def init_args():
+    running=1
+    badtimer=100
+    badtimer1=0
+    badguys=[[640,random.randint(50,430)]]
+    healthvalue=194
+    playerpos = [100,100]
+    acc=[0,0]
+    arrows=[]
+    args_init = [ running , badtimer , badtimer1 , badguys , healthvalue , playerpos , acc , arrows ]
+    return args_init 
 
 # 3 - Load images
 player = pygame.image.load('resources/images/dude.png')
@@ -44,11 +47,17 @@ pygame.mixer.music.set_volume(0.25)
 
 # 4 - Keep looping through
 #------------------------------ StartGame -------------------------------
-def StartGame(running,badtimer,badtimer1,healthvalue):
+def StartGame(running,badtimer,badtimer1,badguys,healthvalue,playerpos,acc,arrows):
     running = running
     exitcode = 0
     # To init the StartGame
     badtimer = badtimer
+    badtimer1 = badtimer1
+    badguys = badguys
+    healthvalue = healthvalue
+    playerpos = playerpos
+    acc = acc
+    arrows = arrows
     while running:
         badtimer -= 1
         # 5 - clear the screen before drawing it again
@@ -184,10 +193,11 @@ def StartGame(running,badtimer,badtimer1,healthvalue):
     #Return args
     args_re=[accuracy,exitcode]
     return args_re
-#-----------------------------StartGame END------------------------------
+#---------------------------- StartGame END -----------------------------
 
 #----------------------------- EndGame ----------------------------------
 def EndGame(accuracy,exitcode):
+    continue_game = True
     # 11.1 - accuracy -->  string
     if accuracy != 0:
         acc_tmp=str(accuracy)
@@ -212,17 +222,15 @@ def EndGame(accuracy,exitcode):
         choiceRect.centerx = screen.get_rect().centerx
         choiceRect.centery = screen.get_rect().centery+48
         screen.blit(choice,choiceRect)
+        #这儿需要一个暂停来对continue_game进行赋值
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == K_c:
                     continue_game = True
-                elif event.key == K_x:
-                    continue_game = False
-                else:
-                    continue_game = True
+                    break
     else:
         pygame.font.init()
-        font = pygame.font.Font(None,24)
+        font = pygame.font.Font(None, 24)
         text = font.render('Accuracy:'+accuracy+'%',True,(0,255,0))
         textRect = text.get_rect()
         textRect.centerx = screen.get_rect().centerx
@@ -241,16 +249,25 @@ def EndGame(accuracy,exitcode):
                 pygame.quit()
                 exit(0)
         pygame.display.flip()
+
+    print continue_game
     return continue_game
 #----------------------------- EndGame END -------------------------------
 
-#-------------------------------------------------------------------------
+#----------------------------- Game Start --------------------------------
 continue_game = True
 while continue_game:
-    args_re = StartGame(running,badtimer,badtimer1,healthvalue)
+    args_init = init_args()#init_args 
+    running = args_init[0]
+    badtimer = args_init[1]
+    badtimer1 = args_init[2]
+    badguys = args_init[3]
+    healthvalue = args_init[4]
+    playerpos = args_init[5]
+    acc = args_init[6]
+    arrows = args_init[7]
+    args_re = StartGame(running,badtimer,badtimer1,badguys,healthvalue,playerpos,acc,arrows)#StartGame
     accuracy = args_re[0]
     exitcode = args_re[1]
-    continue_game = EndGame(accuracy,exitcode)
-    print continue_game
-
+    continue_game = EndGame(accuracy,exitcode)#EndGame
 # End
