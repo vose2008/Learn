@@ -29,6 +29,9 @@ grass = pygame.image.load('resources/images/grass.png')
 castle = pygame.image.load('resources/images/castle.png')
 arrow = pygame.image.load('resources/images/bullet.png')
 badguyimg1 = pygame.image.load('resources/images/badguy.png')
+badguyimg2 = pygame.image.load('resources/images/badguy2.png')
+badguyimg3 = pygame.image.load('resources/images/badguy3.png')
+badguyimg4 = pygame.image.load('resources/images/badguy4.png')
 badguyimg = badguyimg1
 healthbar = pygame.image.load('resources/images/healthbar.png')
 health = pygame.image.load('resources/images/health.png')
@@ -58,6 +61,7 @@ def StartGame(running,badtimer,badtimer1,badguys,healthvalue,playerpos,acc,arrow
     playerpos = playerpos
     acc = acc
     arrows = arrows
+    badguyimg_nu = 0# It's about badguyimg_nu
     while running:
         badtimer -= 1
         # 5 - clear the screen before drawing it again
@@ -102,6 +106,18 @@ def StartGame(running,badtimer,badtimer1,badguys,healthvalue,playerpos,acc,arrow
             if badguy[0] < -64:
                 badguys.pop(index)
             badguy[0]-=7
+            # badguy move img
+            badguyimg_nu += 1
+            if badguyimg_nu == 1:
+                badguyimg = badguyimg1
+            elif badguyimg_nu == 4:
+                badguyimg = badguyimg2
+            elif badguyimg_nu == 7:
+                badguyimg = badguyimg3
+            elif badguyimg_nu == 10:
+                badguyimg = badguyimg4
+            elif badguyimg_nu > 13:
+                badguyimg_nu = 0
             # 6.3.1 - Attack castle
             badrect=pygame.Rect(badguyimg.get_rect())
             badrect.top=badguy[1]
