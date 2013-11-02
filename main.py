@@ -106,7 +106,7 @@ def StartGame(running,badtimer,badtimer1,badguys,healthvalue,playerpos,acc,arrow
             if badguy[0] < -64:
                 badguys.pop(index)
             badguy[0]-=7
-            # badguy move img
+            # 6.3.0 badguy move img
             badguyimg_nu += 1
             if badguyimg_nu == 1:
                 badguyimg = badguyimg1
