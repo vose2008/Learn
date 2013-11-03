@@ -15,12 +15,12 @@
 <li>游戏结束后没有继续或者退出的选择</li>
 <li>游戏结束后精确率的数值是float直接转的string，太长了....
     <ul>
-        <li><b><i>FIX </i></b>float到string，string index到 . 的位置然后截取见#11.1</li>
+        <li><b><i>FIX </i></b>float到string，string index到 . 的位置然后截取,见#11.1</li>
     </ul>
 </li>
 <li>獾移动的动作只有一个没有变化
     <ul>
-        <li><b><i>FIX </i></b>if elif else 见#6.3.0 </li>
+        <li><b><i>FIX </i></b>加几个if elif else 就好,见#6.3.0 </li>
     </ul>
 </li>
 </ol>

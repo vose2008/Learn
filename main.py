@@ -187,16 +187,25 @@ def StartGame(running,badtimer,badtimer1,badguys,healthvalue,playerpos,acc,arrow
                 pygame.quit()
                 exit(0)
         # 9 - Move player
+        # Add code to let player keep in window
         if keys[0]:
             playerpos[1]-=5
+            if playerpos[1] < 30:
+                playerpos[1] = 30 
         elif keys[2]:
             playerpos[1]+=5
-        elif keys[1]:
+            if playerpos[1] > 450:
+                playerpos[1] = 450 
+        elif keys[1]:#bug !
             playerpos[0]-=5
+            if playerpos[0] < 27:
+                playerpos[0] = 27
         elif keys[3]:
             playerpos[0]+=5
+            if playerpos[0] > 620:
+                playerpos[0] = 620
         # 10 - Win/Lose check
-        if pygame.time.get_ticks() >= 90000:#for debug
+        if pygame.time.get_ticks() >= 90000:#value = 90000
             running=0
             exitcode=1
         if healthvalue <= 0:
