@@ -2,7 +2,11 @@
 <h4>Beginning Game Programming for Teens with Python</h4>
 游戏问题：
 <ol>
-<li>兔子移动到边界还可以移动，移出到屏幕外</li>
+<li>兔子移动到边界还可以移动，移出到屏幕外
+    <ul>
+        <li><b><i>FIX </i></b>在坐标值变化时检测，超出则赋值，见#9 </li>
+    </ul>
+</li>
 <li>箭头发射速度-太快-虽然达不到点击即发射</li>
 <li>出现箭头不能杀死獾的情况 原因不明 不报错
     <ul>
@@ -15,12 +19,12 @@
 <li>游戏结束后没有继续或者退出的选择</li>
 <li>游戏结束后精确率的数值是float直接转的string，太长了....
     <ul>
-        <li><b><i>FIX </i></b>float到string，string index到 . 的位置然后截取,见#11.1</li>
+        <li><b><i>FIX </i></b>float到string，string index到 . 的位置然后截取，见#11.1 </li>
     </ul>
 </li>
 <li>獾移动的动作只有一个没有变化
     <ul>
-        <li><b><i>FIX </i></b>加几个if elif else 就好,见#6.3.0 </li>
+        <li><b><i>FIX </i></b>加几个if elif else 就好，见#6.3.0 </li>
     </ul>
 </li>
 </ol>
