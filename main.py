@@ -62,6 +62,7 @@ def StartGame(running,badtimer,badtimer1,badguys,healthvalue,playerpos,acc,arrow
     acc = acc
     arrows = arrows
     badguyimg_nu = 0# It's about badguyimg_nu
+    shot_time = -1# For first shoot
     while running:
         badtimer -= 1
         # 5 - clear the screen before drawing it again
@@ -176,14 +177,22 @@ def StartGame(running,badtimer,badtimer1,badguys,healthvalue,playerpos,acc,arrow
                 elif event.key == K_d:
                     keys[3]=False
             # check event is mouse click 
-            if event.type==pygame.MOUSEBUTTONDOWN:
+            # cooldown
+            shoot_time = pygame.time.get_ticks() 
+            fire_time = shoot_time - shot_time
+            if fire_time > 500:
+                fire = True
+            else:
+                fire = False
+            if event.type==pygame.MOUSEBUTTONDOWN and fire:
                 shoot.play()
                 position = pygame.mouse.get_pos()
                 acc[1]+=1
+                shot_time = pygame.time.get_ticks() 
                 arrows.append([math.atan2(position[1]-(playerpos1[1]+32),position[0]-(playerpos1[0]+26)),playerpos1[0]+32,playerpos1[1]+32])
             # check if the event is the X button
             if event.type == pygame.QUIT:
-                # if it is quit the game
+               # if it is quit the game
                 pygame.quit()
                 exit(0)
         # 9 - Move player
@@ -196,7 +205,7 @@ def StartGame(running,badtimer,badtimer1,badguys,healthvalue,playerpos,acc,arrow
             playerpos[1]+=5
             if playerpos[1] > 450:
                 playerpos[1] = 450 
-        elif keys[1]:#bug !
+        elif keys[1]:
             playerpos[0]-=5
             if playerpos[0] < 27:
                 playerpos[0] = 27
