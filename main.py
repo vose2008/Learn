@@ -256,7 +256,7 @@ def EndGame(accuracy,exitcode):
         choiceRect.centerx = screen.get_rect().centerx
         choiceRect.centery = screen.get_rect().centery+48
         screen.blit(choice,choiceRect)
-        #Õâ¶ùĞèÒªÒ»¸öÔİÍ£À´¶Ôcontinue_game½øĞĞ¸³Öµ
+        #è¿™å„¿éœ€è¦ä¸€ä¸ªæš‚åœæ¥å¯¹continue_gameè¿›è¡Œèµ‹å€¼
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == K_c:
