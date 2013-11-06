@@ -256,12 +256,6 @@ def EndGame(accuracy,exitcode):
         choiceRect.centerx = screen.get_rect().centerx
         choiceRect.centery = screen.get_rect().centery+48
         screen.blit(choice,choiceRect)
-        #这儿需要一个暂停来对continue_game进行赋值
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == K_c:
-                    continue_game = True
-                    break
     else:
         pygame.font.init()
         font = pygame.font.Font(None, 24)
