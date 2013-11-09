@@ -1,2 +1,2 @@
-Beginning Game Programming for Teens with Python 
+Beginning Game Programming for Teens with Python   
 corsinn.me 
