@@ -1,3 +1,2 @@
-Beginning Game Programming for Teens with Python 只差最后循环
-
-corsinn.me 持续中
+Beginning Game Programming for Teens with Python 
+corsinn.me 
