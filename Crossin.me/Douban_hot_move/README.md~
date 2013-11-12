@@ -11,13 +11,13 @@
 额，加个原链接吧
 还需要总体评分吧
 <h5>观测到的</h5>
--------------------API-------------------------  
-movie.douban.com/subject/[id]  
-api.douban.com/v2/movie/subject/[id]  
-ratings_count 评论总数 int  
-average 评分（均分） float  
--------------------URL-------------------------  
-http://movie.douban.com/tag/2011?start=0&type=T  
-20 movies every page  
-TODO get name id ratings  
-name  
+-------------------API-------------------------
+movie.douban.com/subject/[id]
+api.douban.com/v2/movie/subject/[id]
+ratings_count 评论总数 int
+average 评分（均分） float
+-------------------URL-------------------------
+http://movie.douban.com/tag/2011?start=0&type=T
+20 movies every page
+TODO get name id ratings
+name 
