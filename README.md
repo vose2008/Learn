@@ -1,3 +1,3 @@
-Beginning... ¸ú×Å±ğÈË×öµÄPyGameĞ¡ÏîÄ¿Ä¿Â¼   
-crosinn.me   crosinn.me µÄËùÓĞÏà¹ØÏîÄ¿Ä¿Â¼   
-vim          ÎÒµÄvimÏà¹Ø  
+ï»¿Beginning... è·Ÿç€åˆ«äººåšPyGameçš„å°é¡¹ç›®
+crosinn.me   Crosinnç¼–ç¨‹æ•™å®¤çš„æ‰€æœ‰é¡¹ç›®
+vim          æˆ‘çš„vimç›¸å…³
