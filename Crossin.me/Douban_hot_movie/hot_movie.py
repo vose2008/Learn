@@ -10,5 +10,6 @@ document = ""
 openurl = urllib2.urlopen(url)
 content = openurl.read()
 tag_1 = content.find('<div class="">')
-tag_2 = content.find('<div class="paginator")')
-content = contnet[tag_1+
+tag_2 = content.find('<div class="paginator">')
+content = content[(tag_1+len('<div class="")')):tag_2]
+print content
