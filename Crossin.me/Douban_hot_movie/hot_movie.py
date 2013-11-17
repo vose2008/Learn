@@ -21,7 +21,7 @@ print "Get content from HTML"
 #looking for movie by regex 错了，因该根据电影名，然后来划出那部电影的范围，然后获取各值，然后才是赋值，不是获取全部，然后一个个去变列表再赋值
 movie_dic = {}
 vaule = []
-#
+#dic start
 temp_movie = re.findall('<table[\s\S]*?table>',content)
 print "Split movie from content"
 for i in temp_movie:
@@ -33,7 +33,8 @@ for i in temp_movie:
     float(temp_rating)
     vaule.append(temp_rating)
     print temp_rating
-    temp_review = (re.search('<span class="pl".*?\)',i)).group(0)[len('<span class="pl">\)'):-4]
+    # need debug line 37
+    temp_review = (re.search('<span class="pl".*?\d*',i)).group(0)[len('<span class="pl">\)'):]
     vaule.append(temp_review)
     print temp_review
     break
