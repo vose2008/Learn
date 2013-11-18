@@ -10,7 +10,9 @@ page = 0
 url = "http://movie.douban.com/tag/2011?start=%d&type=T"%(page)
 document = ""
 #list [movie_name,..]
-#dictionary movie_name:vaule vaule=movie_url,movie_rating,movie_review
+#dictionary format
+#movie_name:vaule
+#vaule=movie_url,movie_rating,movie_review
 
 openurl = urllib2.urlopen(url)
 content = openurl.read()
@@ -34,9 +36,13 @@ for i in temp_movie:
     vaule.append(temp_rating)
     print temp_rating
     # need debug line 37
-    temp_review = (re.search('<span class="pl".*?\d*',i)).group(0)[len('<span class="pl">\)'):]
+    temp_review = (re.search('<span class="pl".*\d',i)).group(0)[len('<span class="pl">)'):]
     vaule.append(temp_review)
     print temp_review
-    break
     temp_name = (re.search('title=".*?"',i)).group(0)[len('title="'):-1]
-    movie_dic[temp_name]=value
+    print temp_name
+    movie_dic[temp_name] = vaule
+for i in movie_dic:
+    print i 
+    for a in movie_dic[i]:
+        print a
