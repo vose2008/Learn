@@ -9,7 +9,7 @@ import re
 page = 0
 url = "http://movie.douban.com/tag/2011?start=%d&type=T"%(page)
 document = ""
-#list [movie_name,..]
+#movie_list [movie_name_1,movie_name_2,..]
 #dictionary format
 #movie_name:vaule
 #vaule=movie_url,movie_rating,movie_review
@@ -23,26 +23,55 @@ print "Get content from HTML"
 #looking for movie by regex 错了，因该根据电影名，然后来划出那部电影的范围，然后获取各值，然后才是赋值，不是获取全部，然后一个个去变列表再赋值
 movie_dic = {}
 vaule = []
-#dic start
+movie_list = []
+
+#开始抓取
 temp_movie = re.findall('<table[\s\S]*?table>',content)
 print "Split movie from content"
 for i in temp_movie:
     vaule = []
+    #获取电影url
     temp_url = (re.search('<a href=".*?"',i)).group(0)[len('<a href="'):-1]
     vaule.append(temp_url)
-    print temp_url
+    #获取电影评分
     temp_rating = (re.search('rating_nums">.*?<',i)).group(0)[len('rating_nums">'):-1]
     float(temp_rating)
     vaule.append(temp_rating)
-    print temp_rating
-    # need debug line 37
+    #获取电影评论数
     temp_review = (re.search('<span class="pl".*\d',i)).group(0)[len('<span class="pl">)'):]
+    int(temp_review)
     vaule.append(temp_review)
-    print temp_review
+    #获取电影名
     temp_name = (re.search('title=".*?"',i)).group(0)[len('title="'):-1]
-    print temp_name
     movie_dic[temp_name] = vaule
-for i in movie_dic:
-    print i 
-    for a in movie_dic[i]:
-        print a
+    movie_list.append(temp_name)
+
+#开始排序
+#movie_dic[name][2]
+movie_list_temp = []
+for i in movie_list:
+    n=0
+    for a in movie_list:
+        list_long = len(movie_list)
+        n+=1
+        if movie_dic[i][2] > movie_dic[a][2]:
+            result = i
+            if n == list_long:
+                nu = movie_dic.index(i)
+                movie_list.pop(nu)
+        elif movie_dic[i][2] < movie_dic[a][2]:
+            result = a
+            if n == list_long:
+                nu = movie_dic.index(a)
+                movie_list.pop(nu)
+        elif movie_dic[i][2] == movie_dic[a][2]:
+            result = i
+            if n == list_long:
+                nu = movie_dic.index(i)
+                movie_list.pop(nu)
+    movie_list_temp.append(result)
+
+print "-----------------------------------------"
+for i in range(0,20):
+    print "原始列表\t 排序后的"
+    print movie_list[i],"\t",movie_list_temp[i]
