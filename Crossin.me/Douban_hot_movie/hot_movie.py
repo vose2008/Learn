@@ -48,30 +48,7 @@ for i in temp_movie:
 
 #开始排序
 #movie_dic[name][2]
-movie_list_temp = []
-for i in movie_list:
-    n=0
-    for a in movie_list:
-        list_long = len(movie_list)
-        n+=1
-        if movie_dic[i][2] > movie_dic[a][2]:
-            result = i
-            if n == list_long:
-                nu = movie_dic.index(i)
-                movie_list.pop(nu)
-        elif movie_dic[i][2] < movie_dic[a][2]:
-            result = a
-            if n == list_long:
-                nu = movie_dic.index(a)
-                movie_list.pop(nu)
-        elif movie_dic[i][2] == movie_dic[a][2]:
-            result = i
-            if n == list_long:
-                nu = movie_dic.index(i)
-                movie_list.pop(nu)
-    movie_list_temp.append(result)
-
+#movie_lsit
+        
 print "-----------------------------------------"
-for i in range(0,20):
-    print "原始列表\t 排序后的"
-    print movie_list[i],"\t",movie_list_temp[i]
+print "原始列表\t 排序后的"
