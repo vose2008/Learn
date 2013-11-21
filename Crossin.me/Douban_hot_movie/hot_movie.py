@@ -49,6 +49,12 @@ for i in temp_movie:
 #开始排序
 #movie_dic[name][2]
 #movie_lsit
-        
+for i in range(len(movie_list)-1,0,-1):
+    for j in range(0,i):
+        if movie_dic[movie_list[j]][2] > movie_dic[movie_list[j+1]][2]:
+            movie_list[j],movie_list[j+1] = movie_list[j+1],movie_list[j]
+
 print "-----------------------------------------"
 print "原始列表\t 排序后的"
+for i in movie_list:
+    print i
