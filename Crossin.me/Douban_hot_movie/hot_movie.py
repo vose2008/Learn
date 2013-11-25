@@ -14,8 +14,10 @@ document = ""
 #movie_name:vaule
 #vaule=movie_url,movie_rating,movie_review
 
-openurl = urllib2.urlopen(url)
-content = openurl.read()
+#openurl = urllib2.urlopen(url)
+#content = openurl.read()
+##################################
+content = file('2011.htm').read()
 tag_1 = content.find('<div class="">')
 tag_2 = content.find('<div class="paginator">')
 content = content[(tag_1+len('<div class="")')):tag_2]
@@ -50,11 +52,17 @@ for i in temp_movie:
 #movie_dic[name][2]
 #movie_lsit
 for i in range(len(movie_list)-1,0,-1):
-    for j in range(0,i):
-        if movie_dic([movie_list[j]])[2] > movie_dic([movie_list[j+1]])[2]:
+    print i
+    for j in range(0,i,):
+        a,b = movie_dic[movie_list[j]][2],movie_dic[movie_list[j+1]][2]
+        print a,b,
+        if a > b:
             movie_list[j],movie_list[j+1] = movie_list[j+1],movie_list[j]
+            print 'I do'
+        else:
+            print ''
 
 print "-----------------------------------------"
-print "原始列表\t 排序后的"
-for i in movie_list:
-    print i,movie_dic[i][2]
+print "排序后的"
+for i in range(0,20):
+    print movie_dic[movie_list[i]][2]
