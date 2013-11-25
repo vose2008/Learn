@@ -51,16 +51,17 @@ for i in temp_movie:
 #开始排序
 #movie_dic[name][2]
 #movie_lsit
+print movie_list[4]
+print movie_dic[movie_list[4]]
 for i in range(len(movie_list)-1,0,-1):
     print i
     for j in range(0,i,):
         a,b = movie_dic[movie_list[j]][2],movie_dic[movie_list[j+1]][2]
-        print a,b,
         if a > b:
             movie_list[j],movie_list[j+1] = movie_list[j+1],movie_list[j]
-            print 'I do'
+            print a,b,'I do'
         else:
-            print ''
+            print a,b
 
 print "-----------------------------------------"
 print "排序后的"
