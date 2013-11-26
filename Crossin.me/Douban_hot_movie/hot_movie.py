@@ -28,6 +28,8 @@ vaule = []
 movie_list = []
 
 #开始抓取
+#bug
+test=[]
 temp_movie = re.findall('<table[\s\S]*?table>',content)
 print "Split movie from content"
 for i in temp_movie:
@@ -43,6 +45,7 @@ for i in temp_movie:
     temp_review = (re.search('<span class="pl".*\d',i)).group(0)[len('<span class="pl">)'):]
     int(temp_review)
     vaule.append(temp_review)
+    test.append(temp_review)
     #获取电影名
     temp_name = (re.search('title=".*?"',i)).group(0)[len('title="'):-1]
     movie_dic[temp_name] = vaule
@@ -55,7 +58,7 @@ print movie_list[4]
 print movie_dic[movie_list[4]]
 for i in range(len(movie_list)-1,0,-1):
     print i
-    for j in range(0,i,):
+    for j in range(0,i):
         a,b = movie_dic[movie_list[j]][2],movie_dic[movie_list[j+1]][2]
         if a > b:
             movie_list[j],movie_list[j+1] = movie_list[j+1],movie_list[j]
@@ -63,7 +66,16 @@ for i in range(len(movie_list)-1,0,-1):
         else:
             print a,b
 
+for i in range(len(test)-1,0,-1):
+    for j in range(0,i):
+        if test[j] > test[j+1]:
+            test[j],test[j+1] = test[j+1],test[j]
+
 print "-----------------------------------------"
 print "排序后的"
 for i in range(0,20):
     print movie_dic[movie_list[i]][2]
+print '-----------------------------------------'
+for i in test:
+    print i
+print test
