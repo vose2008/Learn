@@ -3,32 +3,43 @@ import urllib2
 import time #for wait times
 import re
 
-print "-----------------------------------------"
+print "\n-----------------------------------------"
 #Get each page of movie ----In this version just do only one page
 #init args
+tag = 2011
 page = 0
-url = "http://movie.douban.com/tag/2011?start=%d&type=T"%(page)
-document = ""#用来存储最后结果
+url = "http://movie.douban.com/tag/%d?start=%d&type=T"%(tag,page)
 
-def get_movie_list(url):
-    #movie_list [movie_name_1,movie_name_2,..]
-    #dictionary format
-    #movie_name:vaule
-    #vaule=movie_url,movie_rating,movie_review
+#movie_list [movie_name_1,movie_name_2,..]
+#dictionary format
+#movie_name:vaule
+#vaule=movie_url,movie_rating,movie_review
+print "Connect to douban_movie and get movie_info"
+openurl = urllib2.urlopen(url)
+content = openurl.read()
+#获取页面数
+tag_page = re.search('\d*</a>\s*<span class="next',content).group(0)
+tag_page = int(re.search('\d*',tag_page).group(0))
+for i in range(0,tag_page+1):
+    time.sleep(2)
+    tag = 2011
+    page += 20
+    url = "http://movie.douban.com/tag/%d?start=%d&type=T"%(tag,page)
     openurl = urllib2.urlopen(url)
     content = openurl.read()
+    #得到只有movie的table的content
     tag_1 = content.find('<div class="">')
     tag_2 = content.find('<div class="paginator">')
     content = content[(tag_1+len('<div class="")')):tag_2]
-    print "Get content from HTML"
-    #looking for movie by regex 错了，因该根据电影名，然后来划出那部电影的范围，然后获取各值，然后才是赋值，不是获取全部，然后一个个去变列表再赋值
+    #looking for movie by regex
+    #错了，因该根据电影名，然后来划出那部电影的范围，然后获取各值，然后才是赋值，不是获取全部，然后一个个去变列表再赋值
     movie_dic = {}
     vaule = []
     movie_list = []
-    
     #开始抓取
     temp_movie = re.findall('<table[\s\S]*?table>',content)
-    print "Split movie from content"
+    print "Get the page of %d movie list"%i
+    print "This is start=%d content"%page
     for i in temp_movie:
         vaule = []
         #获取电影url
@@ -46,7 +57,7 @@ def get_movie_list(url):
         temp_name = (re.search('title=".*?"',i)).group(0)[len('title="'):-1]
         movie_dic[temp_name] = vaule
         movie_list.append(temp_name)
-    return movie_dic
+        print temp_name,movie_dic[temp_name]
 
 #开始排序
 #movie_dic[name][2]
