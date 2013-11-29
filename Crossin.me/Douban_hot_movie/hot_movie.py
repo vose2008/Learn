@@ -49,7 +49,7 @@ for i in range(0,tag_page+1):
         temp_rating = (re.search('rating_nums">.*?<',i)).group(0)[len('rating_nums">'):-1]
         temp_rating = float(temp_rating)
         vaule.append(temp_rating)
-        #获取电影评论数
+        #获取电影评论数 (?<=\<span class="pl"\>\D*?)\d+
         temp_review = (re.search('<span class="pl".*\d',i)).group(0)[len('<span class="pl">)'):]
         temp_review = int(temp_review)
         vaule.append(temp_review)
