@@ -46,11 +46,16 @@ for i in range(0,tag_page+1):
         temp_url = (re.search('<a href=".*?"',i)).group(0)[len('<a href="'):-1]
         vaule.append(temp_url)
         #获取电影评分
-        temp_rating = (re.search('rating_nums">.*?<',i)).group(0)[len('rating_nums">'):-1]
+        temp_rating = (re.search('rating_nums">.*?<',i))
+        if temp_rating:
+            temp_rating = temp_rating.group(0)[len('rating_nums">'):-1]
+        else:
+            temp_rating = 0
         temp_rating = float(temp_rating)
         vaule.append(temp_rating)
-        #获取电影评论数 (?<=\<span class="pl"\>\D*?)\d+
-        temp_review = (re.search('<span class="pl".*\d',i)).group(0)[len('<span class="pl">)'):]
+        #获取电影评论数(?<=<span class="pl">\D*?)\d+
+        temp_review = (re.search('<span class="pl".*\d',i)).group(0)
+        temp_review = (re.search('\d+',temp_review)).group(0)
         temp_review = int(temp_review)
         vaule.append(temp_review)
         #获取电影名
