@@ -24,8 +24,6 @@ for i in range(0,tag_page+1):
     time.sleep(2)
     tag = 2011
     page += 20
-    #for debug
-    page = 660
     url = "http://movie.douban.com/tag/%d?start=%d&type=T"%(tag,page)
     openurl = urllib2.urlopen(url)
     content = openurl.read()
@@ -47,22 +45,24 @@ for i in range(0,tag_page+1):
         #获取电影url
         temp_url = (re.search('<a href=".*?"',i)).group(0)[len('<a href="'):-1]
         vaule.append(temp_url)
-        #获取电影评分 660page 太极
+        #获取电影评分
         temp_rating = (re.search('rating_nums">.*?<',i))
         if temp_rating:
-            temp_rating = temp_rating.group(0)[len('rating_nums">'):-1]
-            if temp_rating == ''
-                temp_tating = 0
+            temp_rating = temp_rating.group(0)
+            temp_rating = re.search('\d+',temp_rating)
+            if temp_rating:
+                temp_rating = temp_rating.group(0)
+            else:
+                temp_rating = 0
         else:
-            temp_rating = 0 
-        print temp_rating
+            temp_rating = 0
         temp_rating = float(temp_rating)
         vaule.append(temp_rating)
-        #获取电影评论数(?<=<span class="pl">\D*?)\d+
+        #获取电影评论数
         temp_review = (re.search('<span class="pl".*\d',i))
         if temp_review:
             temp_review = temp_review.group(0)
-            temp_review = (re.search('\d+',temp_review)).group(0)
+            temp_review = re.search('\d+',temp_review).group(0)
         else:
             temp_review = 0
         temp_review = int(temp_review)
