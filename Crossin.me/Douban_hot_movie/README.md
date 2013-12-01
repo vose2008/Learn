@@ -20,6 +20,6 @@ name
 <h5>bug list</h5>
 tag/2011  
 <ol>
-<li><b>FIX </b>page 560 剩下了什麽 | 少于10人评价 没有评分</li>
+<li><b><i>FIX </i></b>page 560 剩下了什麽 | 少于10人评价 没有评分</li>
 <li>page 660 太极 | 尚未上映 没有评论 没有评分</li>
 </ol>
