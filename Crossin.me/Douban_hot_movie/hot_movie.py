@@ -20,6 +20,9 @@ content = openurl.read()
 #获取页面数
 tag_page = re.search('\d*</a>\s*<span class="next',content).group(0)
 tag_page = int(re.search('\d*',tag_page).group(0))
+
+movie_dic = {}
+movie_list = []
 for i in range(0,tag_page+1):
     time.sleep(2)
     tag = 2011
@@ -33,9 +36,7 @@ for i in range(0,tag_page+1):
     content = content[(tag_1+len('<div class="")')):tag_2]
     #looking for movie by regex
     #错了，因该根据电影名，然后来划出那部电影的范围，然后获取各值，然后才是赋值，不是获取全部，然后一个个去变列表再赋值
-    movie_dic = {}
     vaule = []
-    movie_list = []
     #开始抓取
     temp_movie = re.findall('<table[\s\S]*?table>',content)
     print "Get the page of %d movie list"%i
