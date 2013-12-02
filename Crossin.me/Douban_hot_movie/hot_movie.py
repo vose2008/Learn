@@ -74,9 +74,20 @@ for i in range(0,tag_page+1):
         print temp_name,movie_dic[temp_name]
 
 #开始排序
-#movie_dic[name][2]
-#movie_lsit
+#movie_dic[name][2]---movie rating
+#movie_list
 for i in range(len(movie_list)-1,0,-1):
     for j in range(0,i):
         if movie_dic[movie_list[j]][2] < movie_dic[movie_list[j+1]][2]:
             movie_list[j],movie_list[j+1] = movie_list[j+1],movie_list[j]
+
+#保存文件
+document  = file('Douban_movie','w')
+#movie_dic format 
+#[0]url [1]rating [2]review
+#file format
+#name rating review url
+# i   movie_dic[i][1] movie_dic[i][2] movie_dic[i][0]
+for i in movie_list:
+    movie_info = "%s %.1f %d %s\n"%(i,movie_dic[i][1],movie_dic[i][2],movie_dic[i][0])
+    document.write(movie_info)
