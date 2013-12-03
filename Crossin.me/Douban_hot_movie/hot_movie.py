@@ -3,7 +3,7 @@ import urllib2
 import time #for wait times
 import re
 
-print "\n-----------------------------------------"
+print "\n-----------------------------------------\n"
 #Get each page of movie ----In this version just do only one page
 #init args
 tag = 2011
@@ -14,7 +14,7 @@ url = "http://movie.douban.com/tag/%d?start=%d&type=T"%(tag,page)
 #dictionary format
 #movie_name:vaule
 #vaule=movie_url,movie_rating,movie_review
-print "Connect to douban_movie and get movie_info"
+print "Connect to douban_movie and get movie_info\n"
 openurl = urllib2.urlopen(url)
 content = openurl.read()
 #获取页面数
@@ -39,8 +39,7 @@ for i in range(0,tag_page+1):
     vaule = []
     #开始抓取
     temp_movie = re.findall('<table[\s\S]*?table>',content)
-    print "Get the page of %d movie list"%i
-    print "This is start=%d content"%page
+    print "Get the movie list %d / %d"%(i+1,tag_page)
     for i in temp_movie:
         vaule = []
         #获取电影url
@@ -72,18 +71,21 @@ for i in range(0,tag_page+1):
         temp_name = (re.search('title=".*?"',i)).group(0)[len('title="'):-1]
         movie_dic[temp_name] = vaule
         movie_list.append(temp_name)
-        print temp_name,movie_dic[temp_name]
 
+print "\ndone"
 #开始排序
 #movie_dic[name][2]---movie rating
 #movie_list
+print "Sort the list please wait for some times"
 for i in range(len(movie_list)-1,0,-1):
     for j in range(0,i):
         if movie_dic[movie_list[j]][2] < movie_dic[movie_list[j+1]][2]:
             movie_list[j],movie_list[j+1] = movie_list[j+1],movie_list[j]
 
+print "\ndone"
 #保存文件
 document  = file('Douban_movie','w')
+print "Write to the file: Douban_movie"
 #movie_dic format 
 #[0]url [1]rating [2]review
 #file format
@@ -92,3 +94,6 @@ document  = file('Douban_movie','w')
 for i in movie_list:
     movie_info = "%s %.1f %d %s\n"%(i,movie_dic[i][1],movie_dic[i][2],movie_dic[i][0])
     document.write(movie_info)
+
+document.close()
+print "\ndone"
