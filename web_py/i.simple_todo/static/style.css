@@ -1,10 +1,6 @@
 @charset "utf-8";
 
-body {
-background:#EEE;
-}
+body {background:#EEE;}
 
-.page {}
+.page {margin:30px auto;}
     .header {}
-
-    .

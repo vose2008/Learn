@@ -2,7 +2,7 @@ simple todo
 ===========
 
 ####网页结构  
-index---- (查看已有的todo  )
+index---- (查看已有的todo)  
      |  
      |---New (新增todo)  
      |  
@@ -14,7 +14,7 @@ index---- (查看已有的todo  )
 i.simple_todo---- (README.md)  
              |  
              |---config  
-             |
+             |  
              |---static  
              |  
              |---templates  
