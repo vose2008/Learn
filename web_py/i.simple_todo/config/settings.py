@@ -4,4 +4,4 @@ import web
 
 render = web.template.render('templates/')
 
-web.template.Template.globals['render'] = render 
+web.template.Template.globals['config'] = config
