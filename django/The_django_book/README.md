@@ -2,3 +2,5 @@
 response 响应  
 request 请求  
 cursor 光标  
+
+validate 验证  
