@@ -2,5 +2,6 @@
 response 响应  
 request 请求  
 cursor 光标  
+controller 控制器  
 
 validate 验证  
