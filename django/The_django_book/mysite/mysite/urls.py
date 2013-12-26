@@ -18,4 +18,5 @@ urlpatterns = patterns('',
     url('^hello/$',mypage),
     url('^time/$',current_datetime),
     url(r'^time/plus/(\d{1,2})/$',hours_ahead),
+    url(r'^meta$',display_meta),
 )

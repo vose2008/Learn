@@ -31,3 +31,11 @@ def hours_ahead(request,offset):
 def mypage(request):
     now = datetime.datetime.now()
     return render(request,'mypage.html',{'current_date':now,'title':'TIME'})
+
+def display_meta(request):
+    values = request.META.items()
+    values.sort()
+    html = []
+    for k,v in values:
+        html.append('<tr><td>%s</td><td>%s</td></tr>'%(k,v))
+    return HttpResponse('<table>%s</table>'%'\n'.join(html))
