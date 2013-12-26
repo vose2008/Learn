@@ -5,4 +5,7 @@ cursor 光标
 controller 控制器  
 
 validate 验证  
-LTER TABLE books_book ALTER COLUMN publication_date DROP NOT NULL;
+filter 过滤器  
+_horizontal  横向,水平的(选择栏)  
+_vertical 竖向(选择栏)  
+date_hierarchy  分层,层次(顶端时间条)  
