@@ -38,4 +38,6 @@ def display_meta(request):
     html = []
     for k,v in values:
         html.append('<tr><td>%s</td><td>%s</td></tr>'%(k,v))
-    return HttpResponse('<table>%s</table>'%'\n'.join(html))
+    content = '\n'.join(html)
+    return render(request,'show_meta.html',{'title':'Show META','h1':'About META','content':content,'command':'request.META','path':request.path})
+    #HttpResponse('<table>%s</table>'%'\n'.join(html))

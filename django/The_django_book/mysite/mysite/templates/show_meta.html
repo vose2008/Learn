@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block h1 %}{{ h1 }}{% endblock %}
+{% block content %}
+<table>
+{{ content|safe }}
+</table>
+{% endblock %}
+{% block footer %}
+By --- {{ command }} And your request is {{ path }}
+{% endblock %}
