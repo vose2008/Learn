@@ -89,4 +89,5 @@ STATIC_URL = '/static/'
 #liunx /media/Angel
 TEMPLATE_DIRS = (
     '/media/Angel/GitHub/python/django/The_django_book/mysite/mysite/templates',
+    '/media/Angel/GitHub/python/django/The_django_book/mysite/books/templates',
 )

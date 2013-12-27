@@ -41,3 +41,4 @@ def display_meta(request):
     content = '\n'.join(html)
     return render(request,'show_meta.html',{'title':'Show META','h1':'About META','content':content,'command':'request.META','path':request.path})
     #HttpResponse('<table>%s</table>'%'\n'.join(html))
+

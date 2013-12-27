@@ -5,6 +5,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 from mysite.views import * 
+from books import views as books_views
 
 admin.autodiscover()
 
@@ -19,4 +20,7 @@ urlpatterns = patterns('',
     url('^time/$',current_datetime),
     url(r'^time/plus/(\d{1,2})/$',hours_ahead),
     url(r'^meta$',display_meta),
+    #forms
+    url(r'^search-form/$',books_views.search),
+    url(r'^search/$',books_views.search)
 )
