@@ -22,5 +22,7 @@ urlpatterns = patterns('',
     url(r'^meta$',display_meta),
     #forms
     url(r'^search-form/$',books_views.search),
-    url(r'^search/$',books_views.search)
+    url(r'^search/$',books_views.search),
+    url(r'^contact/$',books_views.contact),
+    url(r'^contact/thanks/$',books_views.thanks),
 )
