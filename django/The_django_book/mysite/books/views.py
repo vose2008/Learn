@@ -1,6 +1,6 @@
 #coding:utf-8
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from books.models import Book
 from django.core.mail import send_mail
 
@@ -59,7 +59,12 @@ def contact(request):
                 ['siteowner@example.com'],
                 )
             return HttpResponseRedirect('/contact/thanks/')
-        return render(request,'contact_form.html',{'errors':errors,'subject':request.POST.get('sbuject',''),'message':request.POST.get('message',''),'email':request.POST.get('email',''),})
+    return render(request,'contact_form.html',{
+        'errors':errors,
+        'subject':request.POST.get('subject',''),
+        'message':request.POST.get('message',''),
+        'email':request.POST.get('email',''),}
+        )
 
 def thanks(request):
     return HttpResponse("Thanks for your Post!")

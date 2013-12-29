@@ -85,9 +85,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-#win E:/
-#liunx /media/Angel
+#liunx /media/Angel AND win E:/
 TEMPLATE_DIRS = (
     '/media/Angel/GitHub/python/django/The_django_book/mysite/mysite/templates',
     '/media/Angel/GitHub/python/django/The_django_book/mysite/books/templates',
 )
+
+#EMAIL
+#EMAIL_BACKND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 9090
+#EMAIL_HOST_USER = '75811239@qq.com'
+#EMAIL_HOST_PASSWORD = '13909088252luo'
+
