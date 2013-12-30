@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from books.models import Book
 from django.core.mail import send_mail
+from forms import ContactForm
 
 # Create your views here.
 #def search_form(request):
@@ -41,7 +42,8 @@ def search(request):
             #title__icontaings=q 获取数据库中标题包含q的书籍
             return render(request,'search_results.html',{'books':books,'query':q})
     return render(request,'search_form.html',{'errors':errors})
-        
+ 
+'''
 def contact(request):
     errors = []
     if request.method == 'POST':
@@ -65,6 +67,25 @@ def contact(request):
         'message':request.POST.get('message',''),
         'email':request.POST.get('email',''),}
         )
+'''
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            send_mail(
+                cd['subject'],
+                cd['message'],
+                cd.get('email','noreply@example.com'),
+                ['siteowner@example.com'],
+                )
+            return HttpResponseRedirect('/contact/thanks/')
+    else:
+        form = ContactForm(
+            initial={'subject':'I love your site!'} 
+        )
+    return render(request,'contact_form.html',{'form':form})
 
 def thanks(request):
     return HttpResponse("Thanks for your Post!")

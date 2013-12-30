@@ -94,7 +94,7 @@ TEMPLATE_DIRS = (
 #EMAIL
 #EMAIL_BACKND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'localhost'
-EMAIL_PORT = 9090
+EMAIL_PORT = 1025
 #EMAIL_HOST_USER = '75811239@qq.com'
 #EMAIL_HOST_PASSWORD = '13909088252luo'
 
