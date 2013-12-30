@@ -25,10 +25,23 @@
     {% endif %}
 
     <form action="" method="post">
-        <table>
-            {{ form.as_table }}
-        </table>
+        <div class="field">
+            {{ form.subject.errors }}
+            <label for="id_subject">Suject:</label>
+            {{ form.subject }}
+        </div>
+        <div class="field">
+            {{ form.email.errors }}
+            <label for="id_email">Your e-mail address:</label>
+            {{ form.email }}
+        </div>
+        <div class="field">
+            {{ form.message.errors }}
+            <label for="id_message">Message of your:</label>
+            {{ form.message }}
+        </div>
         <input type="submit" value="Submit" />
     </form>
+
 </body>
 </html>

@@ -3,6 +3,7 @@ dict.get(key,default=None) 返回key值，如key不存在，返回default值
 str.join([list])  
 request.POST.get('subject','') 第一个复值，为空则赋第二个(默认值)  
 python -m smtpd -n -c DebuggingServer localhost:1025 本地接受所有邮件，并在终端显示邮件，但事实是不能发送邮件  
+{{ form.字段名 }} 单独渲染 或 类中label="字段名" 都可指定字段名
 
 response 响应  
 request 请求  
