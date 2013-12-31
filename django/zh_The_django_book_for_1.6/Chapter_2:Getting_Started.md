@@ -30,11 +30,11 @@ sudo ln -s /path/to/django/bin/django-admin.py /usr/local/bin/django-admin.py.
 
 startproject 命令创建了，1个目录，其包含5个文件：
 ''''
-mysite/
-    manage.py
-    mysite/
-    __init__.py
-    settings.py
-    urls.py
-    wsgi.py
+mysite/  
+    manage.py  
+    mysite/  
+    __init__.py  
+    settings.py  
+    urls.py  
+    wsgi.py  
 ''''
