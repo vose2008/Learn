@@ -34,9 +34,9 @@ startproject 命令创建了，1个目录，其包含5个文件：
 <code>
 mysite  
     |manage.py  
-    `mysite  
+    \mysite  
         |__init__.py  
         |settings.py  
         |urls.py  
-        `wsgi.py  
+        \wsgi.py  
 </code>
