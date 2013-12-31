@@ -31,13 +31,14 @@ sudo ln -s /path/to/django/bin/django-admin.py /usr/local/bin/django-admin.py.
 如果在运行 django-admin.py startproject 的时候，你看到"permission denied"（权限拒绝）的提示，你应当修改这个文件的权限。切换到你django-admin.py的所在目录（例子. cd/usr/local/bin），运行命令chmod +x django-admin.py 。
 
 startproject 命令创建了，1个目录，其包含5个文件：  
-mysite  
-    |manage.py  
-    \mysite  
-        |__init__.py  
-        |settings.py  
-        |urls.py  
-        \wsgi.py  
+
+>mysite/  
+manage.py  
+>>mysite/  
+__init__.py  
+settings.py  
+urls.py  
+wsgi.py   
 
 - - -
 >注释  
