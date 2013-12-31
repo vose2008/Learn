@@ -5,6 +5,7 @@
 项目（project）是 Django 实例的一系列设置的集合，它包括数据库配置、Django特定选项以及应用程序的设置  
 
 如果第一次使用Django，必须进行一些初始化设置工作。新建一个工作目录，例如 /home/username/djcode/ ，然后进入该目录。  
+
 - - -
 >这个目录该放哪儿？  
 
@@ -12,7 +13,9 @@
 
 >所以，把代码放置到根目录 **之外** 的其它目录中。  
 - - -
+
 转到你创建的目录，运行命令django-admin.py startproject mysite。这样就会在你当前目录下创建一个目录。mysite  
+
 - - -
 >注意  
 >如果用的是 setup.py 工具安装的 Django， django-admin.py 应该已经被加入了系统路径（环境变量中）  
@@ -22,10 +25,11 @@ sudo ln -s /path/to/django/bin/django-admin.py /usr/local/bin/django-admin.py.
 >在Windows中，你需要修改你的PATH环境变量。
 >如果你的django是从Linux发行版中安装的，那么，django-admin.py常会被django-admin替代。
 - - -
+
 如果在运行 django-admin.py startproject 的时候，你看到"permission denied"（权限拒绝）的提示，你应当修改这个文件的权限。切换到你django-admin.py的所在目录（例子. cd/usr/local/bin），运行命令chmod +x django-admin.py 。
 
 startproject 命令创建了，1个目录，其包含5个文件：
-''
+''''
 mysite/
     manage.py
     mysite/
@@ -33,4 +37,4 @@ mysite/
     settings.py
     urls.py
     wsgi.py
-''
+''''
