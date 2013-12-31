@@ -12,6 +12,7 @@
 >如果有PHP编程的背景的话，你可能习惯将代码都放在 Web 服务器的文档根目录（例如 /var/www 这样的地方）。而在 Django 中，把任何python代码放到web server的根(root)目录与其它web文档混在一起都不是一个好主意，因为这样做有能使别人通过网络看到你的源代码的风险，那就太糟了。  
 
 >所以，把代码放置到根目录 **之外** 的其它目录中。  
+
 - - -
 
 转到你创建的目录，运行命令django-admin.py startproject mysite。这样就会在你当前目录下创建一个目录。mysite  
@@ -24,6 +25,7 @@
 sudo ln -s /path/to/django/bin/django-admin.py /usr/local/bin/django-admin.py.
 >在Windows中，你需要修改你的PATH环境变量。
 >如果你的django是从Linux发行版中安装的，那么，django-admin.py常会被django-admin替代。
+
 - - -
 
 如果在运行 django-admin.py startproject 的时候，你看到"permission denied"（权限拒绝）的提示，你应当修改这个文件的权限。切换到你django-admin.py的所在目录（例子. cd/usr/local/bin），运行命令chmod +x django-admin.py 。
