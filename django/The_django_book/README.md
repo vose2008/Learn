@@ -4,6 +4,10 @@ str.join([list])
 request.POST.get('subject','') 第一个复值，为空则赋第二个(默认值)  
 python -m smtpd -n -c DebuggingServer localhost:1025 本地接受所有邮件，并在终端显示邮件，但事实是不能发送邮件  
 {{ form.字段名 }} 单独渲染 或 类中label="字段名" 都可指定字段名
+pop dic  
+pop(key[, default]) If key is in the dictionary, remove it and return its value, else return default. If default is not given and key is not in the dictionary, a KeyError is raised.  
+pop list  
+D.pop(k[,d]) -> v, remove specified key and return the corresponding value.If key is not found, d is returned if given, otherwise KeyError is raised.  
 
 response 响应  
 request 请求  
