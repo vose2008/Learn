@@ -9,6 +9,9 @@ pop(key[, default]) If key is in the dictionary, remove it and return its value,
 pop list  
 D.pop(k[,d]) -> v, remove specified key and return the corresponding value.If key is not found, d is returned if given, otherwise KeyError is raised.  
 
+def foo(*args, **kwargs):  
+可变参数一个星号为tuple两个星号为dict  
+
 response 响应  
 request 请求  
 cursor 光标  
