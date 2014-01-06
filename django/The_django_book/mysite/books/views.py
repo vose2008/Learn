@@ -89,3 +89,7 @@ def contact(request):
 
 def thanks(request):
     return HttpResponse("Thanks for your Post!")
+
+def tags(request):
+    words = "hello vose, good morning, it's a good day is't it ?"
+    return render(request,'tags.html',{'words':words})

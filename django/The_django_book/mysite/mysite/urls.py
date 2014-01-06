@@ -33,3 +33,6 @@ urlpatterns += patterns(
     url(r'^search-form/$','search'),
 )
 
+urlpatterns += patterns('',
+    url(r'^',include('books.urls')),
+)
