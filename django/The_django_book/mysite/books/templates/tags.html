@@ -5,8 +5,10 @@
 </head>
 
 <body>
-    <h1>Filter cut</h1>
+    <h2>Filter cut</h2>
     {{ words|cut:" "}}
-    <h1>Filter boom</h1>
+    <h2>Filter boom</h2>
     {{ words|boom }}
+    <h2>Tag current_time</h2>
+    {% current_time "%Y-%m-%M %p" %}
 </body>
