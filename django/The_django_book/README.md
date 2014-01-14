@@ -26,4 +26,7 @@ date_hierarchy  分层,层次(顶端时间条)
 ifequal/ifnotequal  
 
 Chap09 60%  
-<Head First HTML & CSS> list-style-image:url();  
+<Head First HTML & CSS>  
+list-style-image:url();  
+<caption>  
+<fieldset><lengend>  
