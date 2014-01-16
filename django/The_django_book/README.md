@@ -27,6 +27,7 @@ ifequal/ifnotequal
 
 Chap09 60%  
 <Head First HTML & CSS>  
+done
 list-style-image:url();  
 <caption>  
 <fieldset><lengend>  
