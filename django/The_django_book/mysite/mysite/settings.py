@@ -87,7 +87,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #liunx /media/Angel AND win E:/
 TEMPLATE_DIRS = (
-    '/media/Angel/GitHub/python/django/The_django_book/mysite/mysite/templates',
+    os.path.join(BASE_DIR,'mysite/templates').replace('\\','/'),
+    #'/media/Angel/GitHub/python/django/The_django_book/mysite/mysite/templates',
     '/media/Angel/GitHub/python/django/The_django_book/mysite/books/templates',
 )
 
