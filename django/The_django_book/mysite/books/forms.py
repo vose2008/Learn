@@ -1,6 +1,8 @@
 #coding:utf-8
 from django import forms
 
+image = forms.ImageField(required=False)
+
 class ContactForm(forms.Form):
     subject = forms.CharField(max_length=100)
     email = forms.EmailField(required=False, label="E-mail")

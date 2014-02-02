@@ -28,6 +28,11 @@ class Book(models.Model):
     authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey(Publisher)
     publication_date = models.DateField(blank=True, null=True)
+    #For test image
+    image = models.ImageField(upload_to='static')
 
     def __unicode__(self):
         return self.title
+
+class pic(models.Model):
+    image = models.ImageField(upload_to='static')
