@@ -28,6 +28,7 @@ class Book(models.Model):
     authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey(Publisher)
     publication_date = models.DateField(blank=True, null=True)
+    num_pages = models.IntegerField(blank=True, null=True)
     #For test image
     #but can't sync to db
     image = models.ImageField(upload_to='static')
