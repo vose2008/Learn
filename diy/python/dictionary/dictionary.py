@@ -7,41 +7,30 @@ year_leap = False
 
 if year%400==0 or (year%4==0 and year%100!=0):
     year_leap = True
+
+def get_days(month,days):
+    i = 0
+    while (i<days):
+        i+=1
+        if (i<10):
+             i = "0"+str(i)
+        if (month<10):
+            month = "0"+str(month)
+        print str(year)+" "+str(month)+" "+str(i)
+        i = int(i)
+        month = int(month)
+ 
 if year_leap:
-    m=0
-    while (m<12):
-        m+=1
-        if m==1 or m==3 or m==5 or m==7 or m==8 or m==10 or m==12:
-            d = 0
-            while (d<31):
-                d+=1
-                if (d<10):
-                    d = "0"+str(d)
-                if (m<10):
-                    m = "0"+str(m)
-                print str(year)+str(m)+str(d)
-                d = int(d)
-                m = int(m)
-        if m==2:
-            d = 0
-            while (d<29):
-                d+=1
-                if (d<10):
-                    d = "0"+str(d)
-                if (m<10):
-                    m = "0"+str(m)
-                print str(year)+str(m)+str(d)
-                d = int(d)
-                m = int(m)
-        if m==4 or m==6 or m==9 or m==11:
-            d = 0
-            while (d<30):
-                d+=1
-                if (d<10):
-                    d = "0"+str(d)
-                if (m<10):
-                    m = "0"+str(m)
-                print str(year)+str(m)+str(d)
-                d = int(d)
-                m = int(m)
+    month=0
+    while (month<12):
+        month+=1
+        if month==1 or month==3 or month==5 or month==7 or month==8 or month==10 or month==12:
+            days = 31
+            get_days(month,days)
+        if month==2:
+            days = 29
+            get_days(month,days)
+        if month==4 or month==6 or month==9 or month==11:
+            days = 30 
+            get_days(month,days)
 
