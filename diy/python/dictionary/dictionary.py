@@ -1,12 +1,10 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 #coding:utf-8
 
 #date
-year=input(">")
+start_year=input("Year Start >")
+end_year=input("Year End >")
 year_leap = False
-
-if year%400==0 or (year%4==0 and year%100!=0):
-    year_leap = True
 
 def get_month_days(month,days):
     i = 0
@@ -16,7 +14,7 @@ def get_month_days(month,days):
              i = "0"+str(i)
         if (month<10):
             month = "0"+str(month)
-        print str(year)+" "+str(month)+" "+str(i)
+        print str(start_year)+" "+str(month)+" "+str(i)
         i = int(i)
         month = int(month)
 
@@ -37,4 +35,8 @@ def get_year_days(year):
             days = 30 
             get_month_days(month,days)
 
-get_year_days(year)
+while (start_year < end_year+1):
+    if start_year%400==0 or (start_year%4==0 and start_year%100!=0):
+        year_leap = True
+    get_year_days(start_year)
+    start_year += 1
