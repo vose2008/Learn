@@ -4,6 +4,18 @@ import pygame
 from sys import exit
 
 pygame.init()
-screen = pygame.display.set_mode((400,600),0,32)
-pygame.display.set_caption("hello world!")
-background = pygame.image.load("").convert()
+width,height = 400,600
+screen = pygame.display.set_mode((width,height))
+
+background = pygame.image.load("bg1.png")
+
+pygame.display.set_caption("Py_MNB")
+
+# start
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+    screen.blit(background,(0,0))
+    pygame.display.update()
