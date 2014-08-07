@@ -1,6 +1,12 @@
 ﻿<h1>vim</h1>
-我的vim啦~  
-<h5>.vimrc.learn</h5>
+vim 学习&使用 相关 
+<h3>编码相关</h3>
+vim 有四个跟字符编码方式有关的选项：  
+encoding       vim 内部使用的字符编码方式，包括 buffer（缓冲区）、菜单文本、消息文本等。用户手册建议只在 .vimrc 中改变它的值，事实上似乎也只在 .vimrc 中改变才有意义  
+fileencoding   vim 当前编辑的文件的字符编码方式，vim 保存文件时也会将文件保存为这种字符编码方式（不管是否新文件都是如此）  
+fileencodings  vim 启动时会按照它所列出的字符编码方式逐一探测即将打开的文件的字符编码方式，并且将 fileencoding 设置为最终探测到的字符编码方式。因此最好将 Unicode 编码方式放到这个列表的最前面，将拉丁语系编码方式 latin1 放到最后面  
+termencoding   vim 所工作的终端（或 windows 的 console 窗口）的字符编码方式。这个选项在windows 下对我们常用的 GUI 模式的 gVim 无效，而对 console 模式的 Vim 而言就是 windows 控制台的代码页，并且通常我们不需要改变它。  
+<h5> About .vimrc.learn</h5>
 跟着<a target="_blank" href="http://segmentfault.com/u/nightire">nightire</a>学Vim的配置文件（Vim的哲学 系列），受益良多  
 <h5>不太熟悉的</h5>
 :split 横向分屏 :vsplit 列向分屏  
