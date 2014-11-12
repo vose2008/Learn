@@ -14,9 +14,11 @@ Ctrl+w hjkl 移动光标 Ctrl+w HJKL 移动窗口
 Ctrl+w = + - 登高窗口 增加高度 减少高度  
 C+w bt 移动到左上或者右下  
 HLM 移动到屏幕顶中下部  
+:set cursorline(cul) 当前行高亮
+:n,$s/abc/efg/ 从n行开始往下到结尾进行替换
 <h5>需要巩固的</h5>
 [a,b]y 从a复制到b行  
-reg 查看寄存器  
+:reg 查看寄存器  
 m[a-z,A-Z] 标记  
 ' or ` + a-z,A-Z 移动到指定标记  
 <h5>神技</h5>  

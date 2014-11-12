@@ -1,64 +1,127 @@
 ﻿<!doctype html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CS256: Mobile Web development - structure</title>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0 ">
+        <style src="" rel="stylesheet"></style>
+        <title>Google's WebFundamentals</title>
     </head>
 
     <body>
         <div id="headline">
             <div class="container">
-                <h1>Mobile Web Development</h1>
-                <h2>Building Mobile Web Experiences</h2>
+                <header>
+                    <h1>移动网站开发指南</h1>
+                    <p>打造一个具有良好体验的移动网站</p>
+                </header>
                 <div id="blurb">
-                    <p>So you've heard mobile is kind of a big deal, and you're not sure how to transform your traditional desktop-focused web apps into fast, effective multi-screen experiences.</p>
-                    <p>This course is designed to teach web developers what they need to know to create great corss-device web experiences.</p>
-                    <p>This course will focus on building mobile-first web apps, which work across multiple platforms including:</p>
+                    <p>你也听闻过移动网站似乎是一个很难搞的大项目，所以你也不确定是不是能够流畅的将你曾经的桌面版web apps转换为，高效流畅的跨平台web apps</p>
+                    <p>而本课程的初衷就是设计来教会开发者们，创建一个优秀的跨平台网站所需的知识</p>
+                    <p>以移动为第一优先，打造一个跨平台网站，包含以下平台：</p>
                     <ul>
-                        <li>Android,</li>
-                        <li>iOS,</li>
-                        <li>and others.</li>
+                        <li>Android，</li>
+                        <li>iOS，</li>
+                        <li>and others，</li>
                     </ul>
                 </div>
                 <form method="post" id="register">
-                    <h2>Register for the launch</h2>
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" placeholder="Tomas A Anderson" required />
-                    <label for="email">Email address</label>
-                    <input type="email" name="email" id="email" placeholder="neo@example.com" required />
-                    <label for="tel">Telephone</label>
-                    <input type="tel" name="tel" id="tel" placeholder="(555) 555 5555" required />
+                    <h2>开始注册</h2>
+                    <label for="name">名字</label>
+                    <input type="text" name="name" id="name" placeholder="Thomas A Anderson" required>
+                    <label for="email">邮件地址</label>
+                    <input type="email" name="email" id="email" placeholder="neo@example.com" required>
+                    <label for="tel">电话</label>
+                    <input type="tel" name="tel" id="tel" placeholder="(555)555 5555" required>
                     <input type="submit" value="Sign up">
                 </form>
-                <br>
             </div>
         </div>
 
         <div id="section1">
-            <h2></h2>
-            <p></p>
-            <ul>
-                <li></li>
-            </ul>
-            <video></video>
+            <div class="container">
+                <h2>What will I learn?</h2>
+                <p>After completing this class, you'll have built a web application with a first-class mobile experience</p>
+                <p>You'll understand what it takes to:</p>
+                <ul>
+                    <li>build great web experiences on mobile devices</li>
+                    <li>use the tools you need to test perfomance</li>
+                    <li>apply your knowledge to your own projects in the future</li>
+                </ul>
+                <video controls poster="udacity.png">
+                    <source src="udacity.mp4" type="video/mp4"></source>
+                    <source src="udacity.webm" type="video/webm"></source>
+                    <p>Soryy your browser doesn't support video.<a href="udacity.mov">Download the video</a></p>
+                </video>
+                <br>
+            </div>
         </div>
 
         <div id="section2">
-            <h2></h2>
-            <p></p>
+            <h2>Instructors</h2>
+            <p>The worlds leading mobile autorities</p>
             <div id="images">
-                <img>
+                <img src="chriswilson.png" alt="Chris Wilson:Course Instructor">
+                <img src="peterlubbers.png" alt="Peter Lubbers:Course Instructor">
+                <img src="seanbennett.png" alt="Sean Bennet:Course Developer">
             </div>
         </div>
-        
+
         <div id="section3">
-            <h2></h2>
-            <p></p>
+            <h2>Mobile.Why should I care?</h2>
+            <p>It is huge.Everwhere.</p>
+            <table>
+                <caption>
+                    <p>Data From<a href="http://gs.statcounter.com/#desktop+mobile+tablet-comparison-ww-monthly-201303-201403">StatsCounter</a></p>
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Desktop share</th>
+                        <th>Tablet share</th>
+                        <th>Mobile share</th>
+                    </tr>
+                </thead>
+                <colgroup>
+                    <col span="1">
+                    <col span="1">
+                    <col span="1">
+                    <col span="1">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td data-th="Country"><a href="http://gs.statcounter.com/#desktop+mobile+tablet-comparison-IN-monthly-201303-201403">India</a></td>
+                        <td data-th="Desktop share">32%</td>
+                        <td data-th="Tablet share">1%</td>
+                        <td data-th="Mobile share">67%</td>
+                    </tr>
+                    <tr>
+                        <td data-th="Country"><a href="http://gs.statcounter.com/#desktop+mobile+tablet-comparison-GB-monthly-201303-201403">GB</a></td>
+                        <td data-th="Desktop share">69%</td>
+                        <td data-th="Tablet share">13%</td>
+                        <td data-th="Mobile share">18%</td>
+                    </tr>
+                    <tr>
+                        <td data-th="Country"><a href="http://gs.statcounter.com/#desktop+mobile+tablet-comparison-US-monthly-201303-201403">US</a></td>
+                        <td data-th="Desktop share">69%</td>
+                        <td data-th="Tablet share">9%</td>
+                        <td data-th="Mobile share">22%</td>
+                    </tr>
+                    <tr>
+                        <td data-th="Country"><a href="http://gs.statcounter.com/#desktop+mobile+tablet-comparison-CN-monthly-201303-201403">China</a></td>
+                        <td data-th="Desktop share">86%</td>
+                        <td data-th="Tablet share">4%</td>
+                        <td data-th="Mobile share">10%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
         </div>
 
-        <div id="footer">
-            <p></p>
-        </div>
+
+        <footer>
+            <div class="container">
+            <p>We always need a footer.</p>
+            </div>
+        </footer>
+
     </body>
-
 </html>
