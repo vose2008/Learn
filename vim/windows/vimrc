@@ -1,0 +1,98 @@
+﻿set nocompatible "置于最前
+"默认缩进 Tab变为4个空格
+set ts=5
+set sw=4
+set expandtab
+set ru "标尺信息
+set nu
+set laststatus=2
+"设置背景色必须在 syntx enable 前设置, 否则调用 syntx reset
+set background=light
+"设置 语法高亮扩展
+syntax enable
+syntax on
+"设置配色GUI 和Terminal 下
+set guifontwide=source\ code\ pro:h10
+set guifont=iosevka:h12
+"set guifont=iosevka
+if has('gui_running')
+    colorscheme solarized
+else
+    colorscheme darcula
+endif
+
+set magic
+set autoindent "ai
+set foldmethod=indent "设置 折叠方式
+set nofoldenable "启动vim时不折叠
+set dy=lastline "显示最多行，不用@@
+set backspace=indent,eol,start
+set hlsearch "搜索逐字高亮
+set incsearch "搜索实时高亮
+set go= "无菜单、工具栏
+set nobackup
+set showmatch
+
+"2006-09-13 如下：保存视图
+au BufWinLeave *.ztx mkview
+au BufWinEnter *.ztx silent loadview
+au BufNewFile,BufRead *.tx1 setf tx1
+
+"设定文件浏览器目录为当前目录
+set bsdir=buffer
+set autochdir
+"设定终端颜色为256
+set t_Co=256
+"中文编码相关  分别是
+"vim 内部编码
+"vim 新建文档编码（命令时是vim解析出来的文件编码但可能会错）
+"vim 解析文件时猜测的编码格式顺序列表
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936
+    "防止菜单乱码
+if(has("win32")||has("win95")||has("win64")||has("win16"))
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+    language messages zh_CN.utf-8
+endif
+    "让vim默认以双字节处理特殊字符
+"if v:lang =~? '^\(zh\)\|\(ja\)|\(ko\)'
+"    set ambiwidth=double
+"endif
+"------------------- 分割线 ----------------------------
+"设定 mapleader
+let mapleader = ","
+"快速重载 vimrc 文件
+map <silent> <leader>rl :source $VIM/vimrc<cr>
+"快速编辑 vimrc 文件
+map <silent> <leader>ee :e $VIM/vimrc<cr>
+
+" solarized 配色的设置
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+
+"# # # #- - - - Vundle Needs & Settings - - - - # # # #
+filetype off
+set rtp+=$VIM/vimfiles/bundle/Vundle.vim
+call vundle#begin('$VIM/vimfiles/bundle')
+Plugin 'VundleVim/Vundle.vim'
+"- install plugin here -
+" GitHub style
+Plugin 'mattn/emmet-vim'
+Plugin 'scrooloose/nerdtree'
+" 语法检查插件
+"Plugin 'scrooloose/syntastic'
+Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-fugitive'
+"- end plugin list -
+call vundle#end()
+filetype plugin indent on
+
+"# # # #- - - - Plugin Settings- - - - # # # #
+" Airline settings
+let g:airline_powerline_fonts = 1
+"set guifont=iosevka:h14
+"set guifont=Inconsolata-dz\ for\ Powerline:h14
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
