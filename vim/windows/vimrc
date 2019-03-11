@@ -12,7 +12,7 @@ set background=light
 syntax enable
 syntax on
 "设置配色GUI 和Terminal 下
-set guifontwide=source\ code\ pro:h10
+set guifontwide=source\ code\ pro:h12
 set guifont=iosevka:h12
 "set guifont=iosevka
 if has('gui_running')
@@ -38,8 +38,9 @@ au BufWinLeave *.ztx mkview
 au BufWinEnter *.ztx silent loadview
 au BufNewFile,BufRead *.tx1 setf tx1
 
-"设定文件浏览器目录为当前目录
-set bsdir=buffer
+"设定工作目录为当前目录 last buffer current
+set browsedir=current
+"根据编辑文件自动切换工作目录
 set autochdir
 "设定终端颜色为256
 set t_Co=256
@@ -62,11 +63,20 @@ endif
 "endif
 "------------------- 分割线 ----------------------------
 "设定 mapleader
+"设定快捷键
 let mapleader = ","
 "快速重载 vimrc 文件
 map <silent> <leader>rl :source $VIM/vimrc<cr>
 "快速编辑 vimrc 文件
 map <silent> <leader>ee :e $VIM/vimrc<cr>
+" 编译或快速运行
+map <silent> <leader>rr :call CompileNow()<cr>
+func! CompileNow()
+    exec "w"
+    if &filetype == 'python'
+        exec "!python %"
+    endif
+endfunc
 
 " solarized 配色的设置
 let g:solarized_termcolors=256
